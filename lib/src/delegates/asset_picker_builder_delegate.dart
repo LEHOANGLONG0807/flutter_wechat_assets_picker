@@ -507,7 +507,7 @@ abstract class AssetPickerBuilderDelegate<Asset, Path> {
       padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(
         bottom: isAppleOS ? (context.bottomPadding / 2) : context.bottomPadding,
       ),
-      color: theme.primaryColor.withOpacity(isAppleOS ? 0.90 : 1),
+      color: isAppleOS ? Colors.white : theme.primaryColor,
       child: Row(
         mainAxisAlignment: isAppleOS ? MainAxisAlignment.center : MainAxisAlignment.start,
         children: <Widget>[
@@ -524,12 +524,12 @@ abstract class AssetPickerBuilderDelegate<Asset, Path> {
           if (isAppleOS)
             Theme(
               data: Theme.of(context).copyWith(
-                textTheme: Theme.of(context).textTheme.copyWith(
-                      bodyLarge: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                            color: Colors.white,
-                          ),
-                    ),
-              ),
+                  textTheme: Theme.of(context).textTheme.copyWith(
+                        bodyLarge: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                              color: Colors.white,
+                            ),
+                      ),
+                  colorScheme: theme.colorScheme.copyWith(secondary: theme.primaryColor)),
               child: confirmButton(context),
             ),
         ],
