@@ -507,7 +507,7 @@ abstract class AssetPickerBuilderDelegate<Asset, Path> {
       padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(
         bottom: isAppleOS ? (context.bottomPadding / 2) : context.bottomPadding,
       ),
-      color: isAppleOS ? Colors.white : theme.primaryColor,
+      color: Colors.white,
       child: Row(
         mainAxisAlignment: isAppleOS ? MainAxisAlignment.center : MainAxisAlignment.start,
         children: <Widget>[
@@ -516,7 +516,7 @@ abstract class AssetPickerBuilderDelegate<Asset, Path> {
                 data: Theme.of(context).copyWith(
                   textTheme: Theme.of(context).textTheme.copyWith(
                         bodySmall: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              color: Colors.white,
+                              color: Colors.black,
                             ),
                       ),
                 ),
@@ -1748,9 +1748,9 @@ class DefaultAssetPickerBuilderDelegate
             child: Padding(
               padding: const EdgeInsetsDirectional.only(start: 5),
               child: DecoratedBox(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
-                  color: theme.iconTheme.color!.withOpacity(0.5),
+                  color: Colors.transparent,
                 ),
                 child: ValueListenableBuilder<bool>(
                   valueListenable: isSwitchingPath,
